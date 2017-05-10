@@ -1,0 +1,237 @@
+-----------------------
+        2.7
+----------------------
+-------Updates--------
+Air tower bullets will track their targets
+Slow tower bullets will reduce speed of their victims
+Particles and stuff
+Air towers only shoot air, ground only ground.
+Bomb towers explode if their lifetime gets lower than 30 ms.
+Bomb tower explosions hurt creeps within a radius.
+
+-------Fixes-------
+Tower universal Upgrading
+
+-------Bugs-------
+The upgrade range and rate become long decimals for some reason?
+
+The bullets currently depend on a lifetime and speed, but should depend on radius.
+
+
+
+
+-----------------------
+        2.5
+----------------------
+-------Updates--------
+UI updates
+
+-------Fixes-------
+
+-------Bugs-------
+***The Game is broken right now...The engineering lab closed before I figured out how to access the start level function from index.html***
+
+
+The upgrade range and rate become long decimals for some reason?
+If you click while there are no creeps, the game breaks.
+All towers upgrade simultaneously or downgrade simultaneously.
+The bullets currently depend on a lifetime and speed, but should depend on radius.
+
+
+-----------------------
+        2.3
+----------------------
+-------Updates--------
+Towers shoot at creeps
+Creeps take damage and die
+Score, lives, and cash are reflected properly
+Basic sounds implemented
+
+-------Fixes-------
+Fixed funky tower aiming
+
+
+-------Bugs-------
+
+The upgrade range and rate become long decimals for some reason?
+If you click while there are no creeps, the game breaks.
+All towers upgrade simultaneously or downgrade simultaneously.
+The bullets currently depend on a lifetime and speed, but should depend on radius.
+
+
+
+
+
+-----------------------
+        2.2
+----------------------
+-------Updates--------
+Towers can now rotate to get given target....kind of....
+
+-------Fixes-------
+Rendering is fixed
+
+
+-------Bugs-------
+
+The upgrade range and rate become long decimals for some reason?
+If you click while there are no creeps, the game breaks.
+
+
+
+
+-----------------------
+        2.1
+----------------------
+-------Updates--------
+Creep health bars display
+Can click on creeps to kill them, and receive compensation in score and points
+Lose lives when creeps reach end
+Added ability to select towers on field and see their attributes, as well as radius.
+Added tower sell and upgrade buttons, as well as functionality.
+
+-------Fixes-------
+Cannot ever completely close path from start to finish.
+
+
+-------Bugs-------
+Rendering issues.
+The upgrade range and rate become long decimals for some reason?
+If you click while there are no creeps, the game breaks.
+
+-----------------------
+        1.9
+----------------------
+-------Updates--------
+Sprites now work easily...
+flying creeps will fly over towers
+
+-------Fixes-------
+
+
+-------Bugs-------
+Path finding algorithm stops when there are no creeps.
+sprite display size is hard-coded.
+Tower can be placed in invalid spot if creeps have passed that stage of their path.
+Level 2 still breaks game.
+walking creeps no longer update path when a tower is placed
+
+
+
+
+-----------------------
+        1.9
+----------------------
+-------Updates--------
+Added algorithms for finding the shortest path to the exit for each creep.
+  In the current version, they attempt to get to the cell directly across the map
+
+Moved the bulk of input code to the page-game document, rather than the game model
+
+Setup way to spawn different creeps per level.
+
+
+-------Fixes-------
+Fixed tower height being wrong
+
+-------Bugs-------
+Path finding algorithm stops when there are no creeps.
+
+Level 2 breaks game.
+
+-----------------------
+        1.8
+----------------------
+-------Updates--------
+added editable game info (lives, cash, score) and created render function.
+info remains on tower to be placed until placed or cancelled.
+created a cancel placement button (located directly under info).
+
+-------Fixes-------
+n/a
+
+-------Bugs-------
+Tower height still larger than length.
+
+
+-----------------------
+        1.7
+----------------------
+-------Updates--------
+Added removeHandler and clearHandlers function to the mouse input.
+  (These haven't been tested)
+
+Inserted the AnimatedSprite example code from class.
+
+Added Creeps to the Components
+  Creeps can currently spawn randomly at an open side of the map
+  They will spawn based on the current difficulty, which ranges from 1-4
+
+-------Fixes-------
+Fixed the scroll bar appearing when hovering over tower buttons.
+
+-------Bugs-------
+Tower height still larger than length.
+
+-----------------------
+        1.6
+----------------------
+-------Updates--------
+all level 1 towers placeable, description pops up when hovering tower icon,
+a few css beautifications
+-------Fixes-------
+Fixed inability to place multiple towers.
+
+-------Bugs-------
+tower has larger height than length on canvas
+
+
+
+
+-----------------------
+        1.5
+----------------------
+-------Updates--------
+Added the 8-bit creep audio
+
+-------Fixes-------
+Fixed inability to place multiple towers.
+
+-------Bugs-------
+
+
+
+-----------------------
+          1.4
+----------------------
+
+-------Updates--------
+Added the Radius and picture when placing tower objects
+Changed the map to have grass and Trees2D
+
+-------Fixes-------
+
+
+-------Bugs-------
+Mouse input is wrong, adds multiple event listeners at the same time.
+  Need to make a single event handler, and change which tower is being displayed
+
+-----------------------
+          1.2
+----------------------
+
+Tower One Button is up and running in terms of drawing the correct tower to the map.
+Basis for adding extra towers has been created as well.
+
+Still need to implement the drawing of the tower and radius while the mouse is moving.
+
+-----------------------
+        1.
+----------------------
+-------Updates--------
+
+
+-------Fixes-------
+
+
+-------Bugs-------

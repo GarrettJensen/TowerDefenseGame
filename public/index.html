@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html lang = "en-US">
+<head>
+	<meta charset = "UTF-8">
+	<title>TowerDefense</title>
+
+	<link rel = "stylesheet" type = "text/css" href = "styles/style.css">
+</head>
+<body onload = "TowerDefense.screens.initialize();">
+	<div id = "game">
+		<div id = "page-mainmenu" class = "screen">
+			<h1 id = "gameTitle">Defend an Arbitrary Area of Land With Predefined Towers For No Reason</h1>
+			<h2 id = "gameTitle2">(The Game)</h2>
+			<ul class = "menu">
+				<li><button id = "id-new-game">New&nbsp;Game</button></li>
+				<li><button id = "id-controls">Controls</button></li>
+				<li><button id = "id-high-scores">High&nbsp;Scores</button></li>
+				<li><button id = "id-about">About</button></li>
+			</ul>
+		</div>
+		<div id = "page-game" class = "screen">
+			<canvas id = "canvas-main" width = "750" height = "750"></canvas>
+			<div id="game-menu">
+				<div id="game-hud">
+					<p id="id-lives">
+					</p>
+					<p id="id-cash">
+					</p>
+					<p id="id-score">
+					</p>
+				</div>
+
+				<div id="tower-menu">
+					<img src="resources/images/Towers/basic_tower_icon.png" alt="TowerOne"
+						id="buildTowerOneButton" class="towerButton"/>
+					<img src="resources/images/Towers/bomb_tower_icon.png" alt="TowerTwo"
+						id="buildTowerTwoButton" class="towerButton"/>
+					<img src="resources/images/Towers/missile_tower_icon.png" alt="TowerThree"
+						id="buildTowerThreeButton" class="towerButton"/>
+					<img src="resources/images/Towers/wizard_tower.png" alt="TowerFour"
+						id="buildTowerFourButton" class="towerButton"/>
+				</div>
+
+				<div id="tower-info">
+					<div id="basic-tower-info">
+						<p id="tower-name" class="tower-card"></p>
+						<p id="tower-description" class="tower-card"></p>
+						<p id="tower-type" class="tower-card"></p>
+						<p id="tower-damage" class="tower-card"></p>
+						<p id="tower-range" class="tower-card"></p>
+						<p id="tower-speed" class="tower-card"></p>
+						<p id="tower-cost" class="tower-card"></p>
+						<p id="tower-value" class="tower-card"></p>
+						<p id="upgrade-cost" class="tower-card"></p>
+					</div>
+					<button id="cancelButton">X</button>
+					<button id="upgradeButton">Upgrade</button>
+					<button id="sellButton">Sell</button>
+				</div>
+
+				<button id="startLevelButton" class="bottom-buttons" onclick="TowerDefense.model.startLevel();">Start Wave: </button>
+				<button id="muteMusicButton" class="bottom-buttons" onclick="muteMusic();">Mute Music</button>
+				<button id="muteSoundsButton" class="bottom-buttons" onclick="muteSounds();">Mute Effects</button>
+
+			</div> <!-- end game menu -->
+
+		</div>
+		<div id = "page-highscores" class = "screen">
+			<h1>High Scores</h1>
+			<ol id = "high-scores-list">
+			</ol>
+			<ul class="menu">
+				<li><button id = "id-high-scores-back">Back</button></li>
+			</ul>
+		</div>
+		<div id = "page-controls" class = "screen">
+			<h1>Controls</h1>
+			<span class="controlText">Start Level Hotkey: </span><p class="controlButton" id="levelHotkey">DOM_VK_G</p><br>
+			<span class="controlText">Sell Tower Hotkey: </span><p class="controlButton" id="sellHotkey">DOM_VK_S</p><br>
+			<span class="controlText">Upgrade Tower Hotkey: </span><p class="controlButton" id="upgradeHotkey">DOM_VK_U</p><br>
+			<ul class = "menu">
+				<li><button id = "id-controls-back">Back</button></li>
+			</ul>
+		</div>
+		<div id = "page-about" class = "screen">
+			<span id="aboutText"><h1>About</h1>
+			<p>Developed by</p>
+			<p>Andrew Sheridan</p>
+			<p>
+				& Garrett Jensen
+			</p></span>
+			<ul class = "menu">
+				<li><button id = "id-about-back">Back</button></li>
+			</ul>
+		</div>
+	</div>
+
+	<script>
+		var TowerDefense = {
+			pages : {}
+		};
+
+		function muteMusic() {
+			var music = document.getElementById('music');
+			if(!music.muted) {
+				music.muted = true;
+				document.getElementById('muteMusicButton').innerHTML = 'Unmute Music';
+			} else {
+				music.muted = false;
+				document.getElementById('muteMusicButton').innerHTML = 'Mute Music';
+			}
+		}
+
+		function muteSounds() {
+			var sounds = document.getElementsByClassName('sounds');
+			if(!sounds[0].muted) {
+				for(sound in sounds) {
+					sounds[sound].muted = true;
+				}
+				document.getElementById('muteSoundsButton').innerHTML = 'Unmute Effects';
+			} else {
+				for(sound in sounds) {
+					sounds[sound].muted = false;
+				}
+				document.getElementById('muteSoundsButton').innerHTML = 'Mute Effects';
+			}
+		}
+	</script>
+	<script src = "scripts/Graphics.js"></script>
+	<script src = "scripts/input.js"></script>
+	<script src = "scripts/screens.js"></script>
+	<script src = "scripts/page-controls.js"></script>
+	<script src = "scripts/HighScores.js"></script>
+	<script src = "scripts/ParticlesManager.js"></script>
+	<script src = "scripts/Components.js"></script>
+	<script src = "scripts/GameModel.js"></script>
+	<script src = "scripts/random.js"></script>
+	<script src = "scripts/page-mainmenu.js"></script>
+	<script src = "scripts/page-game.js"></script>
+	<script src = "scripts/page-highscores.js"></script>
+	<script src = "scripts/page-about.js"></script>
+	<script src = "scripts/jquery-2.2.2.js"></script>
+	<audio src="resources/audio/Creep.mp3" loop="loop" id="music"></audio>
+	<audio src="resources/audio/ouch0.mp3" id="ouch0" class="sounds"></audio>
+	<audio src="resources/audio/ouch1.mp3" id="ouch1" class="sounds"></audio>
+	<audio src="resources/audio/die1.wav" id="die1" class="sounds"></audio>
+	<audio src="resources/audio/die2.wav" id="die2" class="sounds"></audio>
+	<audio src="resources/audio/die3.wav" id="die3" class="sounds"></audio>
+	<audio src="resources/audio/pain1.wav" id="pain1" class="sounds"></audio>
+	<audio src="resources/audio/pain2.wav" id="pain2" class="sounds"></audio>
+	<audio src="resources/audio/pain3.wav" id="pain3" class="sounds"></audio>
+	<audio src="resources/audio/pain4.wav" id="pain4" class="sounds"></audio>
+	<audio src="resources/audio/pain5.wav" id="pain5" class="sounds"></audio>
+	<audio src="resources/audio/shoot.ogg" id="arrow" class="sounds"></audio>
+	<audio src="resources/audio/hit_1.wav" id="hit1" class="sounds"></audio>
+	<audio src="resources/audio/hit_2.wav" id="hit2" class="sounds"></audio>
+	<audio src="resources/audio/hit_3.wav" id="hit3" class="sounds"></audio>
+	<audio src="resources/audio/gold.wav" id="sell" class="sounds"></audio>
+	<audio src="resources/audio/doorwood_close.wav" id="build" class="sounds"></audio>
+</body>
+</html>
